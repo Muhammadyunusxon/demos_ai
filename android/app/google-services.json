@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "373655709625",
+    "project_id": "demos-ai",
+    "storage_bucket": "demos-ai.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:373655709625:android:ae8a1734a5d748dba9b868",
+        "android_client_info": {
+          "package_name": "uz.demos.ai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "373655709625-qblh7ev94596l2vj5p0t2mfemvf2ggo0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFF08VLXUhaKoJq48ppcJqoTJc4aPVIG8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "373655709625-qblh7ev94596l2vj5p0t2mfemvf2ggo0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

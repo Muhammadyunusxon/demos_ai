@@ -5,7 +5,7 @@ class AppState {
   bool isChangeTheme;
   int selected;
 
-  AppState({this.page = 1, this.isChangeTheme = false,this.selected=0});
+  AppState({this.page = 0, this.isChangeTheme = false,this.selected=0});
 
   AppState copyWith({int? page, bool? isChangeTheme,int? selected}) {
     return AppState(

@@ -23,8 +23,10 @@ class MyButton extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 18.h),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(33.r),
-            gradient: Style.blueGradiant),
+            borderRadius: BorderRadius.circular(18.r),
+            color: Style.primaryColor,
+            // gradient: Style.blueGradiant,
+    ),
         child: Center(
             child: isLoading
                 ? SizedBox(

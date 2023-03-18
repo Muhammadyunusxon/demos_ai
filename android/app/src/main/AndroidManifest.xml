@@ -1,10 +1,22 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="uz.demos.demos_ai">
+    package="uz.demos.ai">
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <queries>
+        <package android:name="com.facebook.katana" />
+    </queries>
    <application
-        android:label="demos_ai"
+        android:label="Demos AI"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
-        <activity
+       <meta-data
+           android:name="com.facebook.sdk.ApplicationId"
+           android:value="@string/facebook_app_id" />
+       <meta-data
+           android:name="com.facebook.sdk.ClientToken"
+           android:value="@string/facebook_client_token" />
+
+       <activity
             android:name=".MainActivity"
             android:exported="true"
             android:launchMode="singleTop"
