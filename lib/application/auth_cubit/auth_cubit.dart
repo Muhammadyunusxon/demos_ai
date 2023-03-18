@@ -30,6 +30,7 @@ class AuthCubit extends Cubit<AuthState> {
           await FirebaseAuth.instance.signInWithCredential(credential);
       debugPrint("${userObj.additionalUserInfo?.isNewUser}");
       if (userObj.additionalUserInfo?.isNewUser ?? true) {
+        var res = await firestore.collection("limit").get();
         // sing in
         firestore
             .collection("users")
@@ -41,11 +42,10 @@ class AuthCubit extends Cubit<AuthState> {
               phone: userObj.user?.phoneNumber ?? "",
               birth: "",
               avatar: userObj.user?.photoURL ?? "",
-              favourite: '',
               fcmToken: await getToken(),
-              dailyLimit: 7,
-              extraLimit: 10,
-              lastTime: DateTime.now().toString(),
+              dailyLimit:  res.docs.first.data()["start-daily-limit"],
+              extraLimit: res.docs.first.data()["start-extra-limit"],
+              lastTime: DateTime.now().toString(), joinTime: DateTime.now().toString(),
             ).toJson())
             .then((value) async {
           await LocalStore.setDocId(value.id);
@@ -83,6 +83,7 @@ class AuthCubit extends Cubit<AuthState> {
       final userObj =
           await FirebaseAuth.instance.signInWithCredential(credential);
       if (userObj.additionalUserInfo?.isNewUser ?? true) {
+        var res = await firestore.collection("limit").get();
         // sing in
         firestore
             .collection("users")
@@ -94,11 +95,10 @@ class AuthCubit extends Cubit<AuthState> {
               phone: userObj.user?.phoneNumber ?? "",
               birth: "",
               avatar: userObj.user?.photoURL ?? "",
-              favourite: '',
               fcmToken: await getToken(),
-              dailyLimit: 7,
-              extraLimit: 10,
-              lastTime: DateTime.now().toString(),
+              dailyLimit: res.docs.first.data()["start-daily-limit"],
+              extraLimit:  res.docs.first.data()["start-extra-limit"],
+              lastTime: DateTime.now().toString(), joinTime: DateTime.now().toString(),
             ).toJson())
             .then((value) async {
           await LocalStore.setDocId(value.id);

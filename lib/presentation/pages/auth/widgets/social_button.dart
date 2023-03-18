@@ -19,8 +19,8 @@ class SocialButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: double.infinity,
-        padding: EdgeInsets.symmetric(
-            vertical: 14, horizontal: MediaQuery.of(context).size.width/6),
+        padding: EdgeInsets.only(
+            top: 14, bottom: 14, left: MediaQuery.of(context).size.width / 6),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16.r),
             color: Theme.of(context).hoverColor,
@@ -43,7 +43,7 @@ class SocialButton extends StatelessWidget {
               style: Theme.of(context)
                   .textTheme
                   .displayMedium
-                  ?.copyWith(fontWeight: FontWeight.w500,fontSize: 19.5.sp),
+                  ?.copyWith(fontWeight: FontWeight.w500, fontSize: 18.5.sp),
             )
           ],
         ),

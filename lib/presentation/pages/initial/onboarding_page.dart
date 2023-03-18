@@ -30,9 +30,9 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 buildWhen: (p, s) => p.page != s.page,
                 builder: (context, state) {
                   return Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 24.w),
+                    padding: EdgeInsets.symmetric(horizontal: 28.w),
                     child: SizedBox(
-                      height: 365.h,
+                      height: 333.h,
                       child: Image.asset(onBoardingList[state.page].image),
                     ),
                   );
@@ -49,7 +49,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                       style: Theme.of(context)
                           .textTheme
                           .displayMedium
-                          ?.copyWith(fontSize: 35.sp),
+                          ?.copyWith(fontSize: 34.sp),
                       textAlign: TextAlign.center,
                     );
                   },
@@ -100,7 +100,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                   onTap: () {
                     context.read<AppCubit>().changePageIndex(onPushed: () {
                       Navigator.of(context).pushAndRemoveUntil(
-                          Routes.goAuth(), (route) => false);
+                          Routes.goSplash(), (route) => false);
                       LocalStore.setOnBoarding();
                     });
                   },

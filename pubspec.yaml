@@ -39,6 +39,8 @@ dependencies:
   flutter_native_splash: ^2.2.18
   shared_preferences: ^2.0.18
   flutter_bloc: ^8.1.2
+  intl: ^0.17.0
+  flutter_svg: ^1.1.6
 
   #  services:
   flutter_screenutil: ^5.7.0
@@ -98,6 +100,7 @@ flutter:
   assets:
     - assets/
     - assets/images/
+    - assets/svg/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

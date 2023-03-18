@@ -80,7 +80,7 @@ abstract class Style {
       {double size = 16,
       Color textColor = whiteColor,
       bool isActive = false}) {
-    return GoogleFonts.urbanist(
+    return GoogleFonts.poppins(
       fontSize: size,
       color: textColor,
       fontWeight: FontWeight.normal,
@@ -90,7 +90,7 @@ abstract class Style {
 
   static textStyleSemiBold(
       {double size = 16, Color textColor = whiteColor}) {
-    return GoogleFonts.urbanist(
+    return GoogleFonts.poppins(
       fontSize: size,
       color: textColor,
       fontWeight: FontWeight.w600,
@@ -100,7 +100,7 @@ abstract class Style {
 
   static textStyleBold(
       {double size = 18, Color textColor = greyscale900Color}) {
-    return GoogleFonts.urbanist(
+    return GoogleFonts.poppins(
       fontSize: size,
       color: textColor,
       fontWeight: FontWeight.bold,
@@ -110,7 +110,7 @@ abstract class Style {
 
   static textStyleRegular(
       {double size = 16, Color textColor = whiteColor}) {
-    return GoogleFonts.urbanist(
+    return GoogleFonts.poppins(
       fontSize: size,
       color: textColor,
       fontWeight: FontWeight.w400,
@@ -122,7 +122,7 @@ abstract class Style {
       {double size = 16,
       Color textColor = whiteColor,
       FontWeight fontWeight = FontWeight.w500}) {
-    return GoogleFonts.urbanist(
+    return GoogleFonts.poppins(
       fontSize: size,
       color: textColor,
       fontWeight: fontWeight,

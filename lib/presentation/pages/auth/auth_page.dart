@@ -2,7 +2,6 @@ import 'package:demos_ai/presentation/pages/auth/widgets/social_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../application/auth_cubit/auth_cubit.dart';
 import '../../app_router.dart';
 
@@ -28,10 +27,10 @@ class AuthPage extends StatelessWidget {
               ),
               const Spacer(flex: 1),
               SizedBox(
-                width: MediaQuery.of(context).size.width/2.5,
+                  width: MediaQuery.of(context).size.width / 2.5,
                   height: 275.h,
                   child: Image.asset("assets/images/logo.png")),
-              Spacer(),
+              const Spacer(),
               Text(
                 "Get in through",
                 style: Theme.of(context)
