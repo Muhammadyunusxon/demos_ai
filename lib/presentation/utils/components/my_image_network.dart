@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:example_project/presentation/utils/components/shimmer_item.dart';
+import 'package:demos_ai/presentation/utils/components/shimmer_item.dart';
 import 'package:flutter/material.dart';
 
 class CustomImageNetwork extends StatelessWidget {

@@ -1,4 +1,4 @@
-import 'package:example_project/presentation/utils/style/style.dart';
+import 'package:demos_ai/presentation/utils/style/style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

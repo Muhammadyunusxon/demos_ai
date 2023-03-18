@@ -1,4 +1,4 @@
-# example_project
+# demos_ai
 
 A new Flutter project.
 

@@ -1,7 +1,7 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:example_project/presentation/pages/initial/no_connection.dart';
-import 'package:example_project/presentation/pages/initial/splash.dart';
-import 'package:example_project/presentation/utils/style/theme.dart';
+import 'package:demos_ai/presentation/pages/initial/no_connection.dart';
+import 'package:demos_ai/presentation/pages/initial/splash.dart';
+import 'package:demos_ai/presentation/utils/style/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

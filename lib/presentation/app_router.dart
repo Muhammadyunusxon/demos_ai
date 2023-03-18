@@ -1,7 +1,7 @@
-import 'package:example_project/presentation/pages/auth/auth_page.dart';
-import 'package:example_project/presentation/pages/initial/onboarding_page.dart';
-import 'package:example_project/presentation/pages/initial/splash.dart';
-import 'package:example_project/presentation/pages/main/main_page.dart';
+import 'package:demos_ai/presentation/pages/auth/auth_page.dart';
+import 'package:demos_ai/presentation/pages/initial/onboarding_page.dart';
+import 'package:demos_ai/presentation/pages/initial/splash.dart';
+import 'package:demos_ai/presentation/pages/main/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

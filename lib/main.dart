@@ -1,4 +1,4 @@
-import 'package:example_project/presentation/app_widget.dart';
+import 'package:demos_ai/presentation/app_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
