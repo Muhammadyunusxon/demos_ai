@@ -47,7 +47,7 @@ class AuthPage extends StatelessWidget {
                       onTap: () {
                         context.read<AuthCubit>().loginFacebook(() {
                           Navigator.pushAndRemoveUntil(
-                              context, Routes.goMain(), (route) => false);
+                              context, Routes.goHome(), (route) => false);
                         });
                       },
                       title: "Facebook");
@@ -62,7 +62,7 @@ class AuthPage extends StatelessWidget {
                       onTap: () {
                         context.read<AuthCubit>().loginGoogle(() {
                           Navigator.pushAndRemoveUntil(
-                              context, Routes.goMain(), (route) => false);
+                              context, Routes.goHome(), (route) => false);
                         });
                       },
                       title: "Google");

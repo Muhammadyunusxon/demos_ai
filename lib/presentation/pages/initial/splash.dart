@@ -27,7 +27,7 @@ class _SplashPageState extends State<SplashPage> {
     } else {
       if (await LocalStore.getDocId() != null) {
         // ignore: use_build_context_synchronously
-        Navigator.push(context, Routes.goMain());
+        Navigator.push(context, Routes.goHome());
       } else {
         // ignore: use_build_context_synchronously
         Navigator.push(context, Routes.goAuth());

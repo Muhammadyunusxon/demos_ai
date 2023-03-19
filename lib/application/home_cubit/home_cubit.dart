@@ -27,7 +27,8 @@ class HomeCubit extends Cubit<HomeState> {
     } else if (DateTime.now().isAfter(DateTime.parse(state.user?.joinTime ?? '')
         .add(const Duration(days: 30)))) {
       var res = await firestore.collection("limit").get();
-      state.user?.extraLimit =state.user?.extraLimit ?? 0 + res.docs.first.data()["monthly"] as int;
+      state.user?.extraLimit =
+          state.user?.extraLimit ?? 0 + res.docs.first.data()["monthly"] as int;
       emit(state.copyWith(user: state.user));
     }
   }

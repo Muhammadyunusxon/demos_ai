@@ -7,6 +7,9 @@ abstract class Style {
   static const primaryColor = Color(0xff20B9FC);
   static const secondaryColor = Color(0xffFD6B22);
 
+  static const scaffoldBackgroundColor = Color(0xFF343541);
+  static const  cardColor =  Color(0xFF444654);
+
   //Alert & Status
   static const successColor = Color(0xff4ADE80);
   static const infoColor = Color(0xff246BFD);

@@ -1,18 +1,18 @@
 class UserModel {
-  final String? name;
-  final String? username;
-  final String? password;
-  final String? avatar;
-  final String? bio;
-  final String? birth;
-  final String? email;
-  final String? phone;
-  final String? fcmToken;
-  final String? docId;
-   int dailyLimit;
-   int extraLimit;
-   String lastTime;
-   String joinTime;
+  String? name;
+  String? username;
+  String? password;
+  String? avatar;
+  String? bio;
+  String? birth;
+  String? email;
+  String? phone;
+  String? fcmToken;
+  String? docId;
+  int dailyLimit;
+  int extraLimit;
+  String lastTime;
+  String joinTime;
 
   UserModel({
     required this.name,

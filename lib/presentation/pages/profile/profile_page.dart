@@ -71,7 +71,7 @@ class ProfilePage extends StatelessWidget {
                         ),
                         12.h.verticalSpace,
                         Text(
-                          "Joined ${DateFormat.yMMMd().format(DateTime.parse(state.user?.joinTime ?? ''))}",
+                          "Joined ${DateFormat.yMMMd().format(DateTime.parse(state.user?.joinTime ?? "${DateTime.now()}"))}",
                           style: Theme.of(context)
                               .textTheme
                               .titleMedium
