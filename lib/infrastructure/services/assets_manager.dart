@@ -9,4 +9,10 @@ abstract class AssetsManager {
   static String logo = "$imagePath/logo.png";
   static String botImage = "$imagePath/chat_logo.png";
   static String openaiLogo = "$imagePath/openai_logo.jpg";
+
+
+  static String svgPath = "assets/svg";
+  static String mapThemePath = "assets/map_theme";
+  static String darkThemePath = "$mapThemePath/dark_theme.json";
+
 }

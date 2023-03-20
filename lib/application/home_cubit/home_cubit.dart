@@ -23,6 +23,12 @@ class HomeCubit extends Cubit<HomeState> {
         .add(const Duration(days: 1)))) {
       var res = await firestore.collection("limit").get();
       state.user?.dailyLimit = res.docs.first.data()["daily"];
+
+      firestore.collection("users").doc(await LocalStore.getDocId()).update({
+        "dailyLimit": res.docs.first.data()["daily"],
+        "lastTime": DateTime.now().toString()
+      });
+
       emit(state.copyWith(user: state.user));
     } else if (DateTime.now().isAfter(DateTime.parse(state.user?.joinTime ?? '')
         .add(const Duration(days: 30)))) {

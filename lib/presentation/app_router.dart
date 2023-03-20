@@ -49,17 +49,17 @@ abstract class Routes {
             child: const AuthPage()));
   }
 
-  static PageRoute goMaps() {
+  static PageRoute goMaps({required VoidCallback onExit}) {
     return MaterialPageRoute(
         builder: (_) => BlocProvider(
-            create: (BuildContext context) => MapsCubit(),
-            child: const MapsPage()));
+            create: (BuildContext context) => MapsCubit()..initial(context),
+            child:  MapsPage(onExit: onExit,)));
   }
 
-  static PageRoute goChat() {
+  static PageRoute goChat({required VoidCallback onExit}) {
     return MaterialPageRoute(
         builder: (_) => BlocProvider(
             create: (BuildContext context) => ChatCubit()..getLimit(),
-            child: const ChatPage()));
+            child: ChatPage(onExit: onExit,)));
   }
 }

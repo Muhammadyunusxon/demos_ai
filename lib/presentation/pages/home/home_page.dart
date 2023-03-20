@@ -69,24 +69,19 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           Text(
                             "Good Morning 👋",
-                            style: Theme
-                                .of(context)
-                                .textTheme
-                                .titleMedium,
+                            style: Theme.of(context).textTheme.titleMedium,
                           ),
                           BlocBuilder<HomeCubit, HomeState>(
                             buildWhen: (p, s) => p.user?.name != s.user?.name,
                             builder: (context, state) {
                               return Text(
                                 (state.user?.name?.contains(" ") == true
-                                    ? state.user?.name?.substring(
-                                    0, state.user?.name?.indexOf(" "))
-                                    : state.user?.name) ??
+                                        ? state.user?.name?.substring(
+                                            0, state.user?.name?.indexOf(" "))
+                                        : state.user?.name) ??
                                     "",
-                                style: Theme
-                                    .of(context)
-                                    .textTheme
-                                    .displayMedium,
+                                style:
+                                    Theme.of(context).textTheme.displayMedium,
                               );
                             },
                           ),
@@ -102,7 +97,9 @@ class _HomePageState extends State<HomePage> {
                       title: 'Start Chat',
                       color: Style.primaryColor,
                       onTap: () {
-                        Navigator.push(context, Routes.goChat());
+                        Navigator.push(context, Routes.goChat(onExit: () {
+                          context.read<HomeCubit>().getUserInfo();
+                        }));
                       },
                       svg: 'comment',
                     ),
@@ -111,7 +108,9 @@ class _HomePageState extends State<HomePage> {
                       title: 'Location Info',
                       color: Style.indigoColor,
                       onTap: () {
-                        Navigator.push(context, Routes.goMaps());
+                        Navigator.push(context, Routes.goMaps(onExit: () {
+                          context.read<HomeCubit>().getUserInfo();
+                        }));
                       },
                       svg: 'marker',
                     ),

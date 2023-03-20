@@ -38,7 +38,7 @@ class SettingWidget extends StatelessWidget {
               style: Theme.of(context)
                   .textTheme
                   .displayMedium
-                  ?.copyWith(fontSize: 20.5.sp, color: color),
+                  ?.copyWith(fontSize: 15.6, color: color),
             ),
             const Spacer(),
             Icon(Icons.arrow_forward_ios, color: color, size: 18),

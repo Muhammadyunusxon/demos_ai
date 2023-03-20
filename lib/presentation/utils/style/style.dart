@@ -153,13 +153,13 @@ abstract class Style {
       filled: true,
       fillColor: fillColor ?? whiteColor.withOpacity(0.2),
       border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: const BorderRadius.vertical(top: Radius.circular(5)),
           borderSide: BorderSide(color: borderColor ?? Colors.transparent)),
       focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: const BorderRadius.vertical(top: Radius.circular(5)),
           borderSide: BorderSide(color: borderColor ?? Colors.transparent)),
       enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: const BorderRadius.vertical(top: Radius.circular(5)),
           borderSide: BorderSide(color: borderColor ?? Colors.transparent)),
     );
   }

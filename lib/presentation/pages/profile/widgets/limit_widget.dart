@@ -23,7 +23,7 @@ class LimitWidget extends StatelessWidget {
             style: Theme.of(context)
                 .textTheme
                 .displayMedium
-                ?.copyWith(fontSize: 21.sp,color: color),
+                ?.copyWith(fontSize: 16,color: color),
           ),
           6.h.verticalSpace,
           Text(
@@ -31,7 +31,7 @@ class LimitWidget extends StatelessWidget {
             style: Theme.of(context)
                 .textTheme
                 .displayMedium
-                ?.copyWith(fontSize: 26.sp,color: color),
+                ?.copyWith(fontSize: 19,color: color),
           ),
         ],
       ),

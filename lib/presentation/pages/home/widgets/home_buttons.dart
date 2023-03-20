@@ -37,7 +37,7 @@ class HomeButtons extends StatelessWidget {
               style: Theme.of(context)
                   .textTheme
                   .displayMedium
-                  ?.copyWith(fontSize: 20.5.sp, color: Theme.of(context).primaryColor),
+                  ?.copyWith(fontSize: 16.5, color: Theme.of(context).primaryColor),
             ),
             const Spacer(),
             Icon(Icons.arrow_forward_ios, color: Theme.of(context).primaryColor, size: 18),
