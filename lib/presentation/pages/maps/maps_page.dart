@@ -5,13 +5,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:osm_nominatim/osm_nominatim.dart';
-
+import '../../../infrastructure/services/app_constants.dart';
 import '../../../infrastructure/services/time_deleyed.dart';
 
 class MapsPage extends StatefulWidget {
   final VoidCallback onExit;
+  final bool theme;
 
-  const MapsPage({Key? key, required this.onExit}) : super(key: key);
+  const MapsPage({Key? key, required this.onExit, required this.theme})
+      : super(key: key);
 
   @override
   State<MapsPage> createState() => _MapsPageState();
@@ -23,6 +25,14 @@ class _MapsPageState extends State<MapsPage> {
   MapType type = MapType.normal;
 
   late GoogleMapController mapController;
+
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      context.read<MapsCubit>().initial(context: context, theme: widget.theme);
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,11 +59,14 @@ class _MapsPageState extends State<MapsPage> {
                     markers: state.setOfMarker ?? {},
                     zoomControlsEnabled: false,
                     myLocationButtonEnabled: false,
-                    initialCameraPosition: const CameraPosition(
-                        target: LatLng(41.285416, 69.204007), zoom: 17),
+                    initialCameraPosition:
+                        const CameraPosition(target: defaultLocation, zoom: 17),
                     onMapCreated: (GoogleMapController controller) {
                       controller.setMapStyle(state.mapTheme);
                       mapController = controller;
+                    },
+                    onCameraMoveStarted: () {
+                      mapController.setMapStyle(state.mapTheme);
                     },
                     onTap: (position) {
                       context.read<MapsCubit>().setMarkerIcon(

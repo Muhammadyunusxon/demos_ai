@@ -6,6 +6,7 @@ abstract class ThemeStyle {
   ThemeStyle._();
 
   static ThemeData? lightTheme = ThemeData(
+    applyElevationOverlayColor: true,
     scaffoldBackgroundColor: Style.whiteColor,
     primaryColor: Style.whiteColor,
     cardColor: Style.greyscale300Color,

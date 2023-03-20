@@ -13,6 +13,6 @@ abstract class AssetsManager {
 
   static String svgPath = "assets/svg";
   static String mapThemePath = "assets/map_theme";
-  static String darkThemePath = "$mapThemePath/dark_theme.json";
+  static String darkThemePath = "$mapThemePath/dark_theme.txt";
 
 }

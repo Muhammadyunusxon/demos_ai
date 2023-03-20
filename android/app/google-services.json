@@ -14,7 +14,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "373655709625-qblh7ev94596l2vj5p0t2mfemvf2ggo0.apps.googleusercontent.com",
+          "client_id": "373655709625-50ss7frrheljvsggbl8ndg1uih45gl48.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "uz.demos.ai",
+            "certificate_hash": "6432f3e02742d01fb850b7a7d7b5d2fc56bc53cf"
+          }
+        },
+        {
+          "client_id": "373655709625-o06at5k696r73o3jcej121qemseog94s.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -27,8 +35,15 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "373655709625-qblh7ev94596l2vj5p0t2mfemvf2ggo0.apps.googleusercontent.com",
+              "client_id": "373655709625-o06at5k696r73o3jcej121qemseog94s.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "373655709625-96hb2o0tdc5d7vdnlpld660shs0scsea.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "uz.demos.ai"
+              }
             }
           ]
         }

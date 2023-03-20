@@ -2,9 +2,15 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:demos_ai/presentation/utils/style/style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 abstract class AppHelpers {
   AppHelpers._();
+
+
+  static requestText(LatLng position){
+    return 'Where is ${position.longitude} , ${position.latitude}';
+  }
 
   static showConfirm(
       {required BuildContext context,
@@ -52,11 +58,11 @@ abstract class AppHelpers {
       {required BuildContext context,
       required String msg,
       required bool isLoading}) {
-    return showBottomSheet(
+    return showModalBottomSheet(
         backgroundColor: Style.transparent,
         context: context,
         builder: (_) => Container(
-              height: MediaQuery.of(context).size.height / 2.2,
+              height: MediaQuery.of(context).size.height / 2.75,
               width: double.infinity,
               decoration: BoxDecoration(
                 color: Theme.of(context).scaffoldBackgroundColor,
@@ -69,7 +75,7 @@ abstract class AppHelpers {
                     ))
                   : SingleChildScrollView(
                       padding: EdgeInsets.symmetric(
-                          horizontal: 24.w, vertical: 12.h),
+                          horizontal: 24.w, vertical: 16.h),
                       child: DefaultTextStyle(
                         style: Theme.of(context).textTheme.displaySmall!,
                         child: AnimatedTextKit(

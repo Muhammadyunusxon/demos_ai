@@ -19,7 +19,7 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
   checkDate() async {
-    if (DateTime.now().isAfter(DateTime.parse(state.user?.joinTime ?? '')
+    if (DateTime.now().isAfter(DateTime.parse(state.user?.lastTime ?? '')
         .add(const Duration(days: 1)))) {
       var res = await firestore.collection("limit").get();
       state.user?.dailyLimit = res.docs.first.data()["daily"];
@@ -30,7 +30,7 @@ class HomeCubit extends Cubit<HomeState> {
       });
 
       emit(state.copyWith(user: state.user));
-    } else if (DateTime.now().isAfter(DateTime.parse(state.user?.joinTime ?? '')
+    } else if (DateTime.now().isAfter(DateTime.parse(state.user?.lastTime ?? '')
         .add(const Duration(days: 30)))) {
       var res = await firestore.collection("limit").get();
       state.user?.extraLimit =

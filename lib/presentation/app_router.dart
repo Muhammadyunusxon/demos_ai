@@ -49,11 +49,11 @@ abstract class Routes {
             child: const AuthPage()));
   }
 
-  static PageRoute goMaps({required VoidCallback onExit}) {
+  static PageRoute goMaps({required VoidCallback onExit,required bool theme}) {
     return MaterialPageRoute(
         builder: (_) => BlocProvider(
-            create: (BuildContext context) => MapsCubit()..initial(context),
-            child:  MapsPage(onExit: onExit,)));
+            create: (BuildContext context) => MapsCubit(),
+            child:  MapsPage(onExit: onExit,theme: theme,)));
   }
 
   static PageRoute goChat({required VoidCallback onExit}) {

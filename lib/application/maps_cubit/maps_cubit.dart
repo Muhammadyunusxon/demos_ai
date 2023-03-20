@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:demos_ai/infrastructure/services/app_errors.dart';
 import 'package:demos_ai/infrastructure/services/app_helper.dart';
@@ -9,19 +8,21 @@ import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
-
 import '../../infrastructure/services/api_service.dart';
+import '../../infrastructure/services/app_constants.dart';
 import '../../infrastructure/services/assets_manager.dart';
 import '../../infrastructure/services/local_storage.dart';
+
+import 'package:flutter/services.dart' show rootBundle;
 
 part 'maps_state.dart';
 
 class MapsCubit extends Cubit<MapsState> {
   MapsCubit() : super(MapsState());
 
-  initial(BuildContext context) {
+  initial({required BuildContext context, required bool theme}) {
     getLimit();
-    getTheme(context);
+    getTheme(context: context, theme: theme);
     setMarkerIcon(context: context);
   }
 
@@ -29,15 +30,15 @@ class MapsCubit extends Cubit<MapsState> {
     emit(state.copyWith(searchText: searchText));
   }
 
-  getTheme(BuildContext context) {
-    DefaultAssetBundle.of(context)
-        .loadString(AssetsManager.darkThemePath)
-        .then((value) => emit(state.copyWith(mapTheme: value)));
+  getTheme({required BuildContext context, required bool theme}) {
+    if (theme) {
+      rootBundle.loadString(AssetsManager.darkThemePath).then((value) {
+        emit(state.copyWith(mapTheme: value));
+      });
+    } else {
+      emit(state.copyWith(mapTheme: null));
+    }
   }
-
-  // searchPosition(String position){
-  //   emit(state.);
-  // }
 
   void setMarkerIcon(
       {LatLng? position,
@@ -49,11 +50,10 @@ class MapsCubit extends Cubit<MapsState> {
           draggable: true,
           consumeTapEvents: true,
           flat: true,
-          position: position ?? const LatLng(41.285416, 69.204007),
+          position: position ?? defaultLocation,
           onTap: () async {
             await sendMessageFCT(
-                msg:
-                    'longitude:${position!.longitude}, latitude:${position.latitude}',
+                msg: AppHelpers.requestText(position ?? defaultLocation),
                 context: context,
                 onSummit: () {
                   AppHelpers.showMyBottomSheet(
@@ -63,6 +63,7 @@ class MapsCubit extends Cubit<MapsState> {
                   );
                 },
                 onFinal: () {
+                  Navigator.pop(context);
                   AppHelpers.showMyBottomSheet(
                     context: context,
                     msg: state.info,
@@ -126,9 +127,9 @@ class MapsCubit extends Cubit<MapsState> {
   }
 
   sendMessageAndGetAnswers({required String msg}) async {
-    print((await ApiService.sendMessageGPT(message: msg)).first.msg);
-    emit(state.copyWith(
-        info: (await ApiService.sendMessageGPT(message: msg)).first.msg));
+    String response = (await ApiService.sendMessageGPT(message: msg)).first.msg;
+    debugPrint("Response $response");
+    emit(state.copyWith(info: response));
   }
 
   Future<void> sendMessageFCT(

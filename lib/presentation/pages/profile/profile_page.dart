@@ -25,25 +25,44 @@ class ProfilePage extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 24.w),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                56.h.verticalSpace,
+                24.h.verticalSpace,
                 BlocBuilder<HomeCubit, HomeState>(
                   buildWhen: (p, s) => p.user != s.user,
                   builder: (context, state) {
                     return Column(
                       children: [
-                        Container(
-                          padding: EdgeInsets.all(7.r),
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                                color: Theme.of(context).cardColor, width: 2.r),
-                            borderRadius: BorderRadius.circular(100),
-                          ),
-                          child: CustomImageNetwork(
-                              radius: 100,
-                              height: 120.r,
-                              width: 120.r,
-                              image: state.user?.avatar),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            IconButton(
+                                onPressed: () => Navigator.pop(context),
+                                icon: Icon(
+                                  Icons.arrow_back_ios,
+                                  color: Theme.of(context).secondaryHeaderColor,
+                                  size: 20,
+                                )),
+                            const Spacer(),
+                            Padding(
+                              padding: EdgeInsets.only(top: 32.h),
+                              child: Container(
+                                padding: EdgeInsets.all(7.r),
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                      color: Theme.of(context).cardColor, width: 2.r),
+                                  borderRadius: BorderRadius.circular(100),
+                                ),
+                                child: CustomImageNetwork(
+                                    radius: 100,
+                                    height: 120.r,
+                                    width: 120.r,
+                                    image: state.user?.avatar),
+                              ),
+                            ),
+                            const Spacer(flex: 2,),
+
+                          ],
                         ),
                         24.h.verticalSpace,
                         Text(

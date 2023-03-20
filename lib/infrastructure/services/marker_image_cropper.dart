@@ -5,8 +5,8 @@ import 'package:flutter/material.dart' as m;
 import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:path_provider/path_provider.dart';
-// ignore: depend_on_referenced_packages
 import 'package:http/http.dart' as http;
+// ignore: depend_on_referenced_packages
 import 'package:image/image.dart' as img;
 import 'dart:async';
 import 'dart:math';

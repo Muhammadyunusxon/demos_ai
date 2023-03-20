@@ -1,3 +1,4 @@
+import 'package:demos_ai/application/app_cubit/app_cubit.dart';
 import 'package:demos_ai/presentation/pages/home/widgets/home_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -104,15 +105,24 @@ class _HomePageState extends State<HomePage> {
                       svg: 'comment',
                     ),
                     32.h.verticalSpace,
-                    HomeButtons(
-                      title: 'Location Info',
-                      color: Style.indigoColor,
-                      onTap: () {
-                        Navigator.push(context, Routes.goMaps(onExit: () {
-                          context.read<HomeCubit>().getUserInfo();
-                        }));
+                    BlocBuilder<AppCubit, AppState>(
+                      buildWhen: (p,s)=>p.isChangeTheme !=s.isChangeTheme,
+                      builder: (context, state) {
+                        return HomeButtons(
+                          title: 'Location Info',
+                          color: Style.indigoColor,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                Routes.goMaps(
+                                    onExit: () {
+                                      context.read<HomeCubit>().getUserInfo();
+                                    },
+                                    theme: state.isChangeTheme));
+                          },
+                          svg: 'marker',
+                        );
                       },
-                      svg: 'marker',
                     ),
                     32.h.verticalSpace,
                     HomeButtons(
