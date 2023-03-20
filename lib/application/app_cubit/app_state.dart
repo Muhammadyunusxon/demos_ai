@@ -1,15 +1,33 @@
 part of 'app_cubit.dart';
 
-class AppState {
+class MyAppState {
   int page;
   bool isChangeTheme;
   int selected;
 
-  AppState({this.page = 0, this.isChangeTheme = false,this.selected=0});
+  BannerAd? bannerAd;
+  bool isLoaded;
 
-  AppState copyWith({int? page, bool? isChangeTheme,int? selected}) {
-    return AppState(
-        page: page ?? this.page,
-        isChangeTheme: isChangeTheme ?? this.isChangeTheme,selected: selected ?? this.selected);
+  MyAppState(
+      {this.page = 0,
+      this.isChangeTheme = false,
+      this.selected = 0,
+      this.bannerAd,
+      this.isLoaded = false});
+
+  MyAppState copyWith({
+    int? page,
+    bool? isChangeTheme,
+    int? selected,
+    BannerAd? bannerAd,
+    bool? isLoaded,
+  }) {
+    return MyAppState(
+      page: page ?? this.page,
+      isChangeTheme: isChangeTheme ?? this.isChangeTheme,
+      selected: selected ?? this.selected,
+      bannerAd: bannerAd ?? this.bannerAd,
+      isLoaded: isLoaded ?? this.isLoaded,
+    );
   }
 }

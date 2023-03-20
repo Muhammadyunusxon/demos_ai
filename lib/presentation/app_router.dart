@@ -24,7 +24,7 @@ abstract class Routes {
   static PageRoute goOnBoarding() {
     return MaterialPageRoute(
         builder: (_) => BlocProvider(
-            create: (BuildContext context) => AppCubit(),
+            create: (BuildContext context) => MyAppCubit(),
             child: const OnBoardingPage()));
   }
 

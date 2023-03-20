@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => AppCubit()..getTheme(),
+      create: (context) => MyAppCubit()..getTheme(),
       child: const AppWidget(),
     );
   }
@@ -46,7 +46,7 @@ class _AppWidgetState extends State<AppWidget> {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (BuildContext context, Widget? child) {
-        return BlocBuilder<AppCubit, AppState>(
+        return BlocBuilder<MyAppCubit, MyAppState>(
           buildWhen: (e, v) => e.isChangeTheme != v.isChangeTheme,
           builder: (context, state) {
             return MaterialApp(

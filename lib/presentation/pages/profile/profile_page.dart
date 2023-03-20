@@ -117,13 +117,13 @@ class ProfilePage extends StatelessWidget {
                   },
                 ),
                 44.h.verticalSpace,
-                BlocBuilder<AppCubit, AppState>(
+                BlocBuilder<MyAppCubit, MyAppState>(
                   builder: (context, state) {
                     return SettingWidget(
                       title: "Change theme",
                       color: Style.primaryColor,
                       onTap: () {
-                        context.read<AppCubit>().change();
+                        context.read<MyAppCubit>().change();
                       },
                       icon:
                           state.isChangeTheme ? Icons.sunny : Icons.nightlight,

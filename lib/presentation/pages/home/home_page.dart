@@ -1,8 +1,11 @@
+// import 'dart:io';
+
 import 'package:demos_ai/application/app_cubit/app_cubit.dart';
 import 'package:demos_ai/presentation/pages/home/widgets/home_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import '../../../application/home_cubit/home_cubit.dart';
 import '../../app_router.dart';
@@ -22,9 +25,9 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     _refreshController = RefreshController();
-    // WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-    //   context.read<HomeCubit>().getUserInfo();
-    // });
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<MyAppCubit>().loadAd();
+    });
     super.initState();
   }
 
@@ -48,7 +51,7 @@ class _HomePageState extends State<HomePage> {
           _refreshController.refreshCompleted();
         },
         child: SafeArea(
-          child: SingleChildScrollView(
+          child: Padding(
             padding: EdgeInsets.all(24.r),
             child: Column(
               children: [
@@ -92,48 +95,59 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
                 24.h.verticalSpace,
-                Column(
-                  children: [
-                    HomeButtons(
-                      title: 'Start Chat',
-                      color: Style.primaryColor,
+                HomeButtons(
+                  title: 'Start Chat',
+                  color: Style.primaryColor,
+                  onTap: () {
+                    Navigator.push(context, Routes.goChat(onExit: () {
+                      context.read<HomeCubit>().getUserInfo();
+                    }));
+                  },
+                  svg: 'comment',
+                ),
+                32.h.verticalSpace,
+                BlocBuilder<MyAppCubit, MyAppState>(
+                  buildWhen: (p, s) => p.isChangeTheme != s.isChangeTheme,
+                  builder: (context, state) {
+                    return HomeButtons(
+                      title: 'Location Info',
+                      color: Style.indigoColor,
                       onTap: () {
-                        Navigator.push(context, Routes.goChat(onExit: () {
-                          context.read<HomeCubit>().getUserInfo();
-                        }));
+                        Navigator.push(
+                            context,
+                            Routes.goMaps(
+                                onExit: () {
+                                  context.read<HomeCubit>().getUserInfo();
+                                },
+                                theme: state.isChangeTheme));
                       },
-                      svg: 'comment',
-                    ),
-                    32.h.verticalSpace,
-                    BlocBuilder<AppCubit, AppState>(
-                      buildWhen: (p,s)=>p.isChangeTheme !=s.isChangeTheme,
-                      builder: (context, state) {
-                        return HomeButtons(
-                          title: 'Location Info',
-                          color: Style.indigoColor,
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                Routes.goMaps(
-                                    onExit: () {
-                                      context.read<HomeCubit>().getUserInfo();
-                                    },
-                                    theme: state.isChangeTheme));
-                          },
-                          svg: 'marker',
-                        );
-                      },
-                    ),
-                    32.h.verticalSpace,
-                    HomeButtons(
-                      title: 'Personality',
-                      color: Style.infoColor,
-                      onTap: () {
-                        Navigator.push(context, Routes.goProfile(context));
-                      },
-                      svg: 'user',
-                    ),
-                  ],
+                      svg: 'marker',
+                    );
+                  },
+                ),
+                32.h.verticalSpace,
+                HomeButtons(
+                  title: 'Personality',
+                  color: Style.infoColor,
+                  onTap: () {
+                    Navigator.push(context, Routes.goProfile(context));
+                  },
+                  svg: 'user',
+                ),
+                const Spacer(),
+                BlocBuilder<MyAppCubit, MyAppState>(
+                  builder: (context, state) {
+                    return  state.bannerAd != null ? Align(
+                      alignment: Alignment.bottomCenter,
+                      child: SafeArea(
+                        child: SizedBox(
+                          width: state.bannerAd!.size.width.toDouble(),
+                          height: state.bannerAd!.size.height.toDouble(),
+                          child: AdWidget(ad: state.bannerAd!),
+                        ),
+                      ),
+                    ): const SizedBox.shrink();
+                  },
                 )
               ],
             ),

@@ -26,7 +26,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           child: Column(
             children: [
               180.h.verticalSpace,
-              BlocBuilder<AppCubit, AppState>(
+              BlocBuilder<MyAppCubit, MyAppState>(
                 buildWhen: (p, s) => p.page != s.page,
                 builder: (context, state) {
                   return Padding(
@@ -41,7 +41,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
               48.h.verticalSpace,
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 24.w),
-                child: BlocBuilder<AppCubit, AppState>(
+                child: BlocBuilder<MyAppCubit, MyAppState>(
                   buildWhen: (p, s) => p.page != s.page,
                   builder: (context, state) {
                     return Text(
@@ -57,7 +57,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
               ),
               Padding(
                 padding: EdgeInsets.only(top: 16.h, right: 24.w, left: 24.w),
-                child: BlocBuilder<AppCubit, AppState>(
+                child: BlocBuilder<MyAppCubit, MyAppState>(
                   buildWhen: (p, s) => p.page != s.page,
                   builder: (context, state) {
                     return Text(
@@ -69,7 +69,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 ),
               ),
               const Spacer(),
-              BlocBuilder<AppCubit, AppState>(
+              BlocBuilder<MyAppCubit, MyAppState>(
                 buildWhen: (p, s) => p.page != s.page,
                 builder: (context, state) {
                   return Row(
@@ -98,7 +98,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 child: MyButton(
                   text: 'Next',
                   onTap: () {
-                    context.read<AppCubit>().changePageIndex(onPushed: () {
+                    context.read<MyAppCubit>().changePageIndex(onPushed: () {
                       Navigator.of(context).pushAndRemoveUntil(
                           Routes.goSplash(), (route) => false);
                       LocalStore.setOnBoarding();
