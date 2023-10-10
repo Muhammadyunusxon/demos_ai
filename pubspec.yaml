@@ -43,7 +43,7 @@ dependencies:
   flutter_svg: ^1.1.6
 
   #  services:
-  flutter_screenutil: ^5.7.0
+  flutter_screenutil: ^5.8.4
   pull_to_refresh: ^2.0.0
   proste_indexed_stack: ^0.2.4
   top_snackbar_flutter: ^3.0.0+1
@@ -51,7 +51,7 @@ dependencies:
 
 
   #  design_tools:
-  google_fonts: ^3.0.1
+  google_fonts: ^4.0.4
   lottie: ^2.2.0
   shimmer: ^2.0.0
   animated_text_kit: ^4.2.2

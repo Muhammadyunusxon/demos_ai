@@ -8,6 +8,7 @@ import '../models/chat_model.dart';
 
 abstract class ApiService {
   ApiService._();
+
   // Send Message using ChatGPT API
   static Future<List<ChatModel>> sendMessageGPT(
       {required String message}) async {
@@ -22,10 +23,7 @@ abstract class ApiService {
           {
             "model": "gpt-3.5-turbo",
             "messages": [
-              {
-                "role": "user",
-                "content": message,
-              }
+              {"role": "user", "content": message}
             ]
           },
         ),
@@ -54,5 +52,4 @@ abstract class ApiService {
       rethrow;
     }
   }
-
 }

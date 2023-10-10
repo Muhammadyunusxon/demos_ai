@@ -1,8 +1,8 @@
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 const String baseUrl = "https://api.openai.com/v1";
-const String apiKey1 = "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";
-const String apiKey2 = "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";
+const String apiKey1 = "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";
+const String apiKey2 = "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";
 
 const String apiKey = apiKey2;
 
